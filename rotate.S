@@ -13,11 +13,13 @@ do_start:
 	cmp $0, %rdx
 	je for_zero	
 for_one:	
-	rol %rsi, %rdi
-	jmp done
+	rol $1, %rdi
+	dec %rsi
+	jz done
 for_zero:
-	ror %rsi, %rdi
-	jmp done
+	ror $1, %rdi
+	dec %rsi
+	jz done
 done:
 	mov %rdi, %rax
 	ret
