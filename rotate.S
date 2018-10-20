@@ -17,6 +17,7 @@ for_one:
 	jmp done
 for_zero:
 	ror %rsi, %rdi
+	jmp done
 done:
 	mov %rdi, %rax
 	ret
