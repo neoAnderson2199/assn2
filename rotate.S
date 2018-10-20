@@ -16,10 +16,12 @@ for_one:
 	rol $1, %rdi
 	dec %rsi
 	jz done
+	jmp for_one
 for_zero:
 	ror $1, %rdi
 	dec %rsi
 	jz done
+	jmp for_zero
 done:
 	mov %rdi, %rax
 	ret
