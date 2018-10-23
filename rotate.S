@@ -1,22 +1,22 @@
 .global rotate
 
-rotate: 
+rotate:
 	#rdi = val
 	#rsi = num
 	#rdx = direction
 	#rcx, rax, and r8 are for scratch
 
-do_start: 
-	xor %r8, %r8 
+start:
 	cmp $1, %rdx
 	je for_one
-	cmp $0, %rdx
-	je for_zero	
-for_one:	
+	jmp for_zero
+	
+for_one:
 	rol $1, %rdi
 	dec %rsi
 	jz done
 	jmp for_one
+
 for_zero:
 	ror $1, %rdi
 	dec %rsi
